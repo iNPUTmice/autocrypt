@@ -1156,7 +1156,7 @@ The following query parameter are used by Autocrypt:
  * `autocrypt-keydata`: The Base64 representation of the binary :rfc:`OpenPGP "Transferable Public Key"<4880#section-11.1>` of the address the mailto URI is referring to, as specified for the Autocrypt header without newlines and with any padding characters percent-encoded.
  * `autocrypt-prefer-encrypt`: The prefer-encrypt value (either nopreference or mutual) of the address, as specified for the Autocrypt header. 
 
-The values derived from the mailto URI MUST not modify the existing Autocrypt Peer State for the given address. If the local Autocrypt Peer State has a key for the given address and it’s `preliminary-recommendation` is calculated to be `available` that key MUST take precedent over the one supplied through the `mailto` URI. The values MAY only be used for composing the e-mail that was invoked by the mailto URI.
+The values derived from the mailto URI MUST not modify the existing Autocrypt Peer State for the given address. The values MAY only be used for composing the e-mail that was invoked by the mailto URI. If the local Autocrypt Peer State has a key for the given address and it’s `preliminary-recommendation` is calculated to be `available` (meaning not outdated and not received through gossip), that key MUST take precedent over the one supplied through the `mailto` URI.
 
 VCard
 +++++
